@@ -13,9 +13,11 @@ export default function Home({ price }) {
 }
 
 export async function getStaticProps() {
-	const price = await getPrice()
-	return {
-		props: { price },
-		revalidate: 3,
-	}
+	try {
+		const price = await getPrice()
+		return {
+			props: { price },
+			revalidate: 3,
+		}
+	} catch (er) {}
 }
