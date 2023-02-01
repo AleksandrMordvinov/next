@@ -1,7 +1,6 @@
-let url =
-	'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=ethereum%2Cgods-unchained'
+import { env } from 'next.config'
 
 export default async function getPrice() {
-	const response = await fetch(url)
+	const response = await fetch(process.env.URL)
 	return await response.json()
 }
